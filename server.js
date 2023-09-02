@@ -21,6 +21,7 @@ const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth",authRoutes);
 
 const server = http.createServer(app);
+socketServer(server);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
