@@ -15,10 +15,12 @@ const socketServer = require("./socketServer");
 // Importing Routes
 
 const authRoutes = require("./routes/authRoutes");
+const friendInvitationRoutes = require("./routes/friendInvitationRoutes");
 
 // Using routes
 
 app.use("/api/auth",authRoutes);
+app.use("/api/friend-invitation", friendInvitationRoutes);
 
 const server = http.createServer(app);
 socketServer(server);
