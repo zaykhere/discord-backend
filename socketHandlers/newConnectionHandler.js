@@ -12,6 +12,10 @@ const newConnectionHandler = async (socket, io) => {
   //update pending friends invitations list
 
   updatePendingFriendsInvitations(userDetails.userId)
+
+  console.log("update friends")
+
+  updatePendingFriendsInvitations.updateFriends(userDetails.userId);
 }
 
 module.exports = newConnectionHandler;
