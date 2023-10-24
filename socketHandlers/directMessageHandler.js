@@ -1,5 +1,6 @@
 const Conversation = require("../models/Conversation");
 const Message = require("../models/Message");
+const chatUpdates = require("./updates/chat");
 
 const directMessageHandler = async(socket, data) => {
   try {
@@ -29,6 +30,8 @@ const directMessageHandler = async(socket, data) => {
       await conversation.save();
 
       //perform update to sender and receiver
+      chatUpdates.updateChatHistory(conversation._id.toString());
+
     }
 
     else {
@@ -38,6 +41,7 @@ const directMessageHandler = async(socket, data) => {
       })
 
       //perform update to sender and receivr
+      chatUpdates.updateChatHistory(conversation._id.toString());
     }
 
   } catch (error) {
